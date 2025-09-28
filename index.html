@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Penalty Calculator</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .calculator { background: white; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); padding: 40px; width: 100%; max-width: 500px; }
+        h1 { color: #333; text-align: center; margin-bottom: 30px; font-size: 28px; font-weight: 600; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #555; font-weight: 500; }
+        input, select { width: 100%; padding: 12px 15px; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 16px; transition: border-color 0.3s; }
+        input:focus, select:focus { outline: none; border-color: #667eea; }
+        button { width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 15px; border-radius: 8px; font-size: 18px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+        button:hover { transform: translateY(-2px); }
+        button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .results { margin-top: 30px; padding: 25px; background: #f8f9fa; border-radius: 10px; display: none; }
+        .results h3 { color: #333; margin-bottom: 15px; text-align: center; }
+        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #e1e5e9; }
+        .result-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .result-value { font-weight: 600; color: #667eea; }
+        .total { font-size: 18px; font-weight: 700; color: #2d3748; }
+        .error { color: #e53e3e; text-align: center; margin-top: 15px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Universal Penalty Calculator</h1>
+        <div class="input-group">
+            <label for="principal">Principal Amount ($)</label>
+            <input type="number" id="principal" placeholder="Enter principal amount" min="0" step="0.01">
+        </div>
+        <div class="input-group">
+            <label for="penalty-type">Penalty Type</label>
+            <select id="penalty-type">
+                <option value="flat">Flat Fee</option>
+                <option value="percentage">Percentage</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="penalty-value" id="penalty-label">Penalty Value ($)</label>
+            <input type="number" id="penalty-value" placeholder="Enter penalty value" min="0" step="0.01">
+        </div>
+        <div class="input-group">
+            <label for="interest-rate">Annual Interest Rate (%)</label>
+            <input type="number" id="interest-rate" placeholder="Enter interest rate" min="0" step="0.01">
+        </div>
+        <button id="calculate-btn">Calculate Total</button>
+        <div class="error" id="error-message"></div>
+        <div class="results" id="results-container">
+            <h3>Calculation Results</h3>
+            <div class="result-item">
+                <span>Principal Amount:</span>
+                <span class="result-value" id="total-principal">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span>Total Penalty:</span>
+                <span class="result-value" id="total-penalty">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span>Total Interest:</span>
+                <span class="result-value" id="total-interest">$0.00</span>
+            </div>
+            <div class="result-item total">
+                <span>Total Accrued:</span>
+                <span class="result-value" id="total-accrued">$0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'https://penalty-calculator-phi.vercel.app/api/calculate';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculate-btn');
+            const penaltyType = document.getElementById('penalty-type');
+            const penaltyLabel = document.getElementById('penalty-label');
+            
+            penaltyType.addEventListener('change', function() {
+                penaltyLabel.textContent = this.value === 'flat' ? 'Penalty Value ($)' : 'Penalty Value (%)';
+            });
+            
+            calculateBtn.addEventListener('click', calculatePenalty);
+        });
+        
+        async function calculatePenalty() {
+            const principal = parseFloat(document.getElementById('principal').value);
+            const penaltyType = document.getElementById('penalty-type').value;
+            const penaltyValue = parseFloat(document.getElementById('penalty-value').value);
+            const interestRate = parseFloat(document.getElementById('interest-rate').value);
+            
+            if (!principal || principal < 0) { showError('Please enter a valid principal amount'); return; }
+            if (!penaltyValue || penaltyValue < 0) { showError('Please enter a valid penalty value'); return; }
+            if (!interestRate || interestRate < 0) { showError('Please enter a valid interest rate'); return; }
+            
+            const btn = document.getElementById('calculate-btn');
+            btn.textContent = 'Calculating...';
+            btn.disabled = true;
+            hideError();
+            
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ principal, penaltyType, penaltyValue, interestRate })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('total-accrued').textContent = '$' + data.data.totalAccrued.toFixed(2);
+                    document.getElementById('total-principal').textContent = '$' + data.data.breakdown.principal.toFixed(2);
+                    document.getElementById('total-penalty').textContent = '$' + data.data.breakdown.totalPenalty.toFixed(2);
+                    document.getElementById('total-interest').textContent = '$' + data.data.breakdown.totalInterest.toFixed(2);
+                    document.getElementById('results-container').style.display = 'block';
+                } else {
+                    showError('Error: ' + data.error);
+                }
+            } catch (error) {
+                showError('Network error: ' + error.message);
+            } finally {
+                btn.textContent = 'Calculate';
+                btn.disabled = false;
+            }
+        }
+        
+        function showError(message) {
+            const errorEl = document.getElementById('error-message');
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+        }
+        
+        function hideError() {
+            document.getElementById('error-message').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
