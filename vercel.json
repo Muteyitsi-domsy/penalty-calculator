@@ -10,7 +10,7 @@
     {
       "src": "/api/calculate",
       "dest": "/api/calculate.js",
-      "methods": ["GET", "POST", "OPTIONS"]
+      "methods": ["POST", "OPTIONS", "GET"]
     }
   ]
 }
