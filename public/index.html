@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Penalty & Interest Calculator 2025 - Calculate Fees, IRS, Loans | Rate Converter</title>
+    <meta name="description" content="Free universal penalty calculator with interest rate converter. Calculate late fees, convert monthly to annual rates, compare APR vs monthly rates. IRS penalties, loan defaults, contract breaches. Accurate results instantly.">
+    <meta name="keywords" content="interest rate converter, monthly to annual rate calculator, APR calculator, effective annual rate, penalty calculator, loan calculator, debt payoff, interest calculator, financial calculator, rate conversion">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1469535097572247" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "twyq6orzai");
+</script>
+    
+    <!-- Add required libraries for exports -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .calculator {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 750px;
+            position: relative;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .results {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .results h3 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e1e5e9;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .result-value {
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .total {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d3748;
+        }
+        
+        .error {
+            color: #e53e3e;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e5e9;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    /* Educational Content Styles */
+    .educational-section {
+        margin: 30px 0;
+        padding: 25px;
+        background: #f8f9fa;
+        border-radius: 10px;
+    }
+
+    .info-card {
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+    }
+
+    .info-card h4 {
+        color: #667eea;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .resources-section {
+        margin: 40px 0;
+        padding: 25px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+        color: white;
+    }
+
+    .example-calculation {
+        background: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    /* Debt Calculator Styles */
+    .calculator-section {
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 2px solid #e1e5e9;
+    }
+    
+    .slider {
+        width: 100%;
+        height: 8px;
+        border-radius: 4px;
+        background: #e1e5e9;
+        outline: none;
+        margin-top: 8px;
+    }
+    
+    .slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #667eea;
+        cursor: pointer;
+    }
+    
+    .payoff-results {
+        display: none;
+        margin-top: 25px;
+        padding: 20px;
+        background: #f0fff4;
+        border-radius: 10px;
+        border-left: 4px solid #48bb78;
+    }
+
+    .comparison-results {
+        display: none;
+        margin-top: 25px;
+        padding: 20px;
+        background: #fffaf0;
+        border-radius: 10px;
+        border-left: 4px solid #ed8936;
+    }
+
+    .savings-results {
+        display: none;
+        margin-top: 25px;
+        padding: 20px;
+        background: #ebf8ff;
+        border-radius: 10px;
+        border-left: 4px solid #4299e1;
+    }
+
+    .conversion-results {
+        display: none;
+        margin-top: 25px;
+        padding: 20px;
+        background: #faf5ff;
+        border-radius: 10px;
+        border-left: 4px solid #9f7aea;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: #e1e5e9;
+        border-radius: 4px;
+        margin: 15px 0;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        border-radius: 4px;
+        transition: width 0.5s ease;
+    }
+
+    .scenario-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+    }
+    
+    .scenario-btn:active {
+        transform: translateY(0);
+    }
+
+    .savings-message {
+        display: none;
+        margin-top: 15px;
+        padding: 12px;
+        background: #ebf8ff;
+        border-radius: 8px;
+        border-left: 4px solid #4299e1;
+    }
+
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .comparison-card {
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        border: 2px solid #e1e5e9;
+    }
+
+    .comparison-card.best {
+        border-color: #48bb78;
+        background: #f0fff4;
+    }
+
+    /* Premium Features Styles */
+    .premium-badge {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 10px;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .pro-feature {
+        border: 2px solid #f59e0b;
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    }
+
+    .export-btn {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .export-btn:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+    }
+
+    .multi-debt-entry {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #e1e5e9;
+    }
+
+    .saved-scenario {
+        background: white;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        border: 1px solid #e1e5e9;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .saved-scenario:hover {
+        background: #f0fff4;
+        border-color: #48bb78;
+    }
+
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        z-index: 1000;
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+    }
+
+    .notification.show {
+        transform: translateX(0);
+    }
+
+    .notification.success {
+        background: #10b981;
+    }
+
+    .notification.error {
+        background: #ef4444;
+    }
+
+    .notification.info {
+        background: #3b82f6;
+    }
+
+    .app-cta {
+        background: #f0fff4;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        text-align: center;
+        border: 2px solid #10b981;
+    }
+
+    @media (max-width: 768px) {
+        .calculator {
+            padding: 25px;
+        }
+        
+        .grid-container {
+            grid-template-columns: 1fr;
+        }
+
+        .comparison-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="header-content">
+            <h1>Free Penalty and Interest Calculator with Rate Converter</h1>
+            <p class="intro-text">Calculate late payment fees, penalty charges, and interest for loans, taxes, contracts. Convert between monthly, annual, and daily interest rates. Compare APR vs monthly rates instantly. Universal financial tool for individuals and businesses.</p>
+        </div>
+
+        <!-- Educational Content Section -->
+        <div class="educational-section">
+            <h3 style="color: #333; margin-bottom: 20px;">📚 Understanding Financial Penalties & Interest Rates</h3>
+            
+            <div class="grid-container">
+                <div class="info-card">
+                    <h4>💰 How Penalties Work</h4>
+                    <p style="color: #666; font-size: 14px; line-height: 1.5;">Penalties are additional charges applied when payments are late, contracts are breached, or obligations aren't met. They can be fixed amounts (flat fees) or percentages of your principal balance.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>📈 Interest Rate Types</h4>
+                    <p style="color: #666; font-size: 14px; line-height: 1.5;">Interest rates can be quoted as annual (APR), monthly, or daily rates. Understanding how to convert between them helps you compare financial products accurately.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>⚖️ Common Financial Tools</h4>
+                    <p style="color: #666; font-size: 14px; line-height: 1.5;">• Penalty calculators • Interest rate converters • Debt payoff planners • APR calculators • Effective rate calculators • Loan comparison tools</p>
+                </div>
+            </div>
+
+            <div class="example-calculation">
+                <h4 style="color: #1976d2; margin-bottom: 10px;">💡 Real-World Example</h4>
+                <p style="color: #333; margin: 5px 0;"><strong>$1,000 principal + 5% penalty ($50) + 10% annual interest ($100) = $1,150 total after 1 year</strong></p>
+                <p style="color: #666; font-size: 14px; margin-top: 8px;">This demonstrates how a 15% combined penalty and interest rate increases your original debt by $150 in just one year.</p>
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <label for="principal">Principal Amount ($)</label>
+            <input type="number" id="principal" placeholder="Enter principal amount" min="0" step="0.01">
+        </div>
+        
+        <div class="input-group">
+            <label for="penalty-type">Penalty Type</label>
+            <select id="penalty-type">
+                <option value="flat">Flat Fee</option>
+                <option value="percentage">Percentage</option>
+            </select>
+        </div>
+        
+        <div class="input-group">
+            <label for="penalty-value" id="penalty-label">Penalty Value ($)</label>
+            <input type="number" id="penalty-value" placeholder="Enter penalty value" min="0" step="0.01">
+        </div>
+        
+        <div class="input-group">
+            <label for="interest-rate">Annual Interest Rate (%)</label>
+            <input type="number" id="interest-rate" placeholder="Enter interest rate" min="0" step="0.01">
+        </div>
+        
+        <button id="calculate-btn">Calculate Total</button>
+        
+        <div class="error" id="error-message"></div>
+        
+        <div class="results" id="results-container">
+            <h3>Calculation Results</h3>
+            <div class="result-item">
+                <span>Principal Amount:</span>
+                <span class="result-value" id="total-principal">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span>Total Penalty:</span>
+                <span class="result-value" id="total-penalty">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span>Total Interest:</span>
+                <span class="result-value" id="total-interest">$0.00</span>
+            </div>
+            <div class="result-item total">
+                <span>Total Accrued:</span>
+                <span class="result-value" id="total-accrued">$0.00</span>
+            </div>
+            
+            <!-- Export Buttons -->
+            <div style="margin-top: 15px; text-align: center;">
+                <button class="export-btn" onclick="handleExport('pdf', 'penalty', getCalculationData())" style="background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                    📄 Export to PDF
+                </button>
+                <button class="export-btn" onclick="handleExport('excel', 'penalty', getCalculationData())" style="background: #10b981; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                    📊 Export to Excel
+                </button>
+            </div>
+
+            <!-- App CTA after calculation -->
+            <div class="app-cta">
+                <h4>🎉 Love this calculation?</h4>
+                <p>Get daily coaching, progress tracking, and join our Fruit Warrior community in the app!</p>
+                <button onclick="showAppPreview()" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 10px;">
+                    Get the App for Full Coaching
+                </button>
+                <p style="font-size: 12px; color: #666; margin-top: 8px;">Sync this calculation to your phone</p>
+            </div>
+        </div>
+
+        <!-- NEW: Interest Rate Converter Section -->
+        <div class="calculator-section">
+            <h3 style="color: #333; margin-bottom: 20px; text-align: center;">🔄 Interest Rate Converter</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 14px;">Convert between annual, monthly, daily, and weekly interest rates. Calculate APR and effective annual rates for accurate financial comparisons.</p>
+            
+            <div class="input-group">
+                <label for="rate-type">Convert From</label>
+                <select id="rate-type">
+                    <option value="annual">Annual Rate (APR)</option>
+                    <option value="monthly">Monthly Rate</option>
+                    <option value="daily">Daily Rate</option>
+                    <option value="weekly">Weekly Rate</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="input-rate">Interest Rate (%)</label>
+                <input type="number" id="input-rate" placeholder="Enter interest rate" min="0" step="0.01" value="12">
+            </div>
+            
+            <div class="input-group">
+                <label for="compounding-frequency">Compounding Frequency</label>
+                <select id="compounding-frequency">
+                    <option value="daily">Daily</option>
+                    <option value="monthly" selected>Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="annually">Annually</option>
+                    <option value="continuous">Continuous</option>
+                </select>
+            </div>
+            
+            <button id="convert-rates-btn" style="background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);">
+                Convert Interest Rates
+            </button>
+            
+            <div class="conversion-results" id="conversion-results">
+                <h4 style="color: #2d3748; margin-bottom: 15px;">Rate Conversion Results</h4>
+                <div class="result-item">
+                    <span>Annual Rate (APR):</span>
+                    <span class="result-value" id="annual-rate">0.00%</span>
+                </div>
+                <div class="result-item">
+                    <span>Monthly Rate:</span>
+                    <span class="result-value" id="monthly-rate">0.00%</span>
+                </div>
+                <div class="result-item">
+                    <span>Daily Rate:</span>
+                    <span class="result-value" id="daily-rate">0.00%</span>
+                </div>
+                <div class="result-item">
+                    <span>Weekly Rate:</span>
+                    <span class="result-value" id="weekly-rate">0.00%</span>
+                </div>
+                <div class="result-item total">
+                    <span>Effective Annual Rate (EAR):</span>
+                    <span class="result-value" id="effective-rate">0.00%</span>
+                </div>
+                
+                <!-- Export Buttons -->
+                <div style="margin-top: 15px; text-align: center;">
+                    <button class="export-btn" onclick="handleExport('pdf', 'rate-conversion', getRateConversionData())" style="background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                        📄 Export to PDF
+                    </button>
+                    <button class="export-btn" onclick="handleExport('excel', 'rate-conversion', getRateConversionData())" style="background: #10b981; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                        📊 Export to Excel
+                    </button>
+                </div>
+                
+                <div style="margin-top: 15px; padding: 12px; background: #e9d8fd; border-radius: 6px;">
+                    <p style="font-size: 13px; color: #553c9a; margin: 0;">
+                        <strong>💡 Pro Tip:</strong> Compare monthly rates to annual rates to understand the true cost of financing options. Effective Annual Rate (EAR) shows the actual cost with compounding.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Penalty Comparison Tool -->
+        <div class="calculator-section">
+            <h3 style="color: #333; margin-bottom: 20px; text-align: center;">📊 Penalty Comparison Tool</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 14px;">Compare different penalty scenarios to see how they affect your total cost</p>
+            
+            <div class="input-group">
+                <label for="compare-penalty">Compare With Alternative Penalty (%)</label>
+                <input type="number" id="compare-penalty" placeholder="Enter alternative penalty percentage" min="0" step="0.1" value="10">
+            </div>
+            
+            <button id="compare-btn" style="background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);">
+                Compare Penalty Scenarios
+            </button>
+            
+            <div class="comparison-results" id="comparison-results">
+                <h4 style="color: #2d3748; margin-bottom: 15px;">Penalty Comparison Results</h4>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h5 style="color: #667eea; margin-bottom: 10px;">Current Scenario</h5>
+                        <div class="result-item">
+                            <span>Penalty:</span>
+                            <span class="result-value" id="current-penalty">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Total Cost:</span>
+                            <span class="result-value" id="current-total">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <h5 style="color: #ed8936; margin-bottom: 10px;">Alternative Scenario</h5>
+                        <div class="result-item">
+                            <span>Penalty:</span>
+                            <span class="result-value" id="compare-penalty-amount">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Total Cost:</span>
+                            <span class="result-value" id="compare-total">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-item total" style="margin-top: 15px;">
+                    <span>Difference:</span>
+                    <span class="result-value" id="comparison-difference">$0.00</span>
+                </div>
+                
+                <!-- Export Buttons -->
+                <div style="margin-top: 15px; text-align: center;">
+                    <button class="export-btn" onclick="handleExport('pdf', 'penalty-comparison', getComparisonData())" style="background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                        📄 Export to PDF
+                    </button>
+                    <button class="export-btn" onclick="handleExport('excel', 'penalty-comparison', getComparisonData())" style="background: #10b981; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                        📊 Export to Excel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Debt Payoff Calculator Section -->
+        <div class="calculator-section">
+            <h3 style="color: #333; margin-bottom: 20px; text-align: center;">🎯 Debt Payoff Calculator</h3>
+            
+            <div class="input-group">
+                <label for="monthly-payment">Monthly Payment You Can Afford ($)</label>
+                <input type="range" id="monthly-payment" min="50" max="2000" value="300" step="50" class="slider">
+                <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <span style="font-size: 12px; color: #666;">$50</span>
+                    <span id="monthly-payment-value" style="font-weight: bold; color: #667eea;">$300</span>
+                    <span style="font-size: 12px; color: #666;">$2000</span>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="extra-payment">One-Time Extra Payment ($) <span style="font-size: 12px; color: #666;">(optional)</span></label>
+                <input type="number" id="extra-payment" placeholder="0" min="0" step="100" value="0">
+            </div>
+
+            <!-- Early Payoff Savings Calculator -->
+            <div class="input-group">
+                <label for="early-payoff-months">Pay Off Early In (Months) <span style="font-size: 12px; color: #666;">(see potential savings)</span></label>
+                <input type="number" id="early-payoff-months" placeholder="Enter months for early payoff" min="1" step="1">
+            </div>
+            
+            <div class="input-group">
+                <label>Quick Scenarios:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" class="scenario-btn" data-amount="500" style="flex: 1; padding: 8px; background: #e53e3e; color: white; border: none; border-radius: 5px; cursor: pointer;">Aggressive</button>
+                    <button type="button" class="scenario-btn" data-amount="300" style="flex: 1; padding: 8px; background: #d69e2e; color: white; border: none; border-radius: 5px; cursor: pointer;">Balanced</button>
+                    <button type="button" class="scenario-btn" data-amount="150" style="flex: 1; padding: 8px; background: #38a169; color: white; border: none; border-radius: 5px; cursor: pointer;">Minimum</button>
+                </div>
+            </div>
+            
+            <button id="calculate-payoff-btn" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); margin-top: 10px;">
+                Calculate Payoff Plan
+            </button>
+            
+            <div class="payoff-results" id="payoff-results">
+                <h4 style="color: #2d3748; margin-bottom: 15px;">Your Payoff Plan</h4>
+                <div class="result-item">
+                    <span>Months to Payoff:</span>
+                    <span class="result-value" id="payoff-months">0</span>
+                </div>
+                <div class="result-item">
+                    <span>Total Interest Paid:</span>
+                    <span class="result-value" id="total-interest-paid">$0.00</span>
+                </div>
+                <div class="result-item">
+                    <span>Interest Savings vs Minimum:</span>
+                    <span class="result-value" style="color: #38a169;" id="interest-savings">$0.00</span>
+                </div>
+                <div class="result-item">
+                    <span>Payoff Date:</span>
+                    <span class="result-value" id="payoff-date">-</span>
+                </div>
+                
+                <!-- Export Buttons -->
+                <div style="margin-top: 15px; text-align: center;">
+                    <button class="export-btn" onclick="handleExport('pdf', 'debt-payoff', getPayoffData())" style="background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                        📄 Export to PDF
+                    </button>
+                    <button class="export-btn" onclick="handleExport('excel', 'debt-payoff', getPayoffData())" style="background: #10b981; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                        📊 Export to Excel
+                    </button>
+                </div>
+
+                <!-- Early Payoff Savings Results -->
+                <div class="savings-results" id="savings-results">
+                    <h5 style="color: #4299e1; margin-bottom: 10px;">💎 Early Payoff Savings</h5>
+                    <div class="result-item">
+                        <span>Months Saved:</span>
+                        <span class="result-value" style="color: #4299e1;" id="months-saved">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Interest Savings:</span>
+                        <span class="result-value" style="color: #4299e1;" id="early-savings">$0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Required Monthly Payment:</span>
+                        <span class="result-value" style="color: #4299e1;" id="required-payment">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="progress-container" style="margin: 20px 0;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <span style="font-size: 14px; color: #666;">Debt Freedom Progress</span>
+                        <span style="font-size: 14px; color: #667eea; font-weight: 600;" id="progress-text">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="result-item" style="font-size: 14px; color: #666;">
+                    <span id="min-payment-label">vs Minimum Payment:</span>
+                    <span class="result-value" style="color: #e53e3e;" id="vs-minimum">-</span>
+                </div>
+
+                <div class="savings-message" id="savings-message">
+                    <span style="font-weight: 600; color: #2b6cb0;">🎉 Great choice! </span>
+                    <span id="savings-text">You're making smart financial decisions!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multi-Debt Manager (Pro Feature) -->
+        <div class="calculator-section pro-feature" id="multi-debt-section">
+            <h3 style="color: #333; margin-bottom: 20px; text-align: center;">📊 Multi-Debt Manager <span class="premium-badge">APP FEATURE</span></h3>
+            <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 14px;">Manage multiple debts simultaneously and optimize your payoff strategy</p>
+            
+            <div id="debt-list">
+                <div class="multi-debt-entry">
+                    <div class="input-group">
+                        <label>Debt 1 Description</label>
+                        <input type="text" class="debt-description" placeholder="e.g., Credit Card, Personal Loan" value="Credit Card">
+                    </div>
+                    <div class="input-group">
+                        <label>Balance ($)</label>
+                        <input type="number" class="debt-balance" placeholder="Current balance" value="5000" min="0" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label>Interest Rate (%)</label>
+                        <input type="number" class="debt-interest" placeholder="Annual interest rate" value="18" min="0" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label>Minimum Payment ($)</label>
+                        <input type="number" class="debt-min-payment" placeholder="Minimum monthly payment" value="150" min="0" step="0.01">
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="addDebtEntry()" style="background: #6b7280; margin-bottom: 15px;">+ Add Another Debt</button>
+            <button onclick="calculateMultiDebt()" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">Calculate Multi-Debt Strategy</button>
+            
+            <div class="results" id="multi-debt-results" style="display: none;">
+                <h4>Multi-Debt Payoff Strategy</h4>
+                <div id="debt-strategy-results"></div>
+                
+                <!-- Export Buttons -->
+                <div style="margin-top: 15px; text-align: center;">
+                    <button class="export-btn" onclick="handleExport('pdf', 'multi-debt', getMultiDebtData())" style="background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                        📄 Export to PDF
+                    </button>
+                    <button class="export-btn" onclick="handleExport('excel', 'multi-debt', getMultiDebtData())" style="background: #10b981; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; margin: 5px;">
+                        📊 Export to Excel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Save & Load Scenarios (Pro Feature) -->
+        <div class="calculator-section pro-feature">
+            <h3 style="color: #333; margin-bottom: 20px; text-align: center;">💾 Save & Load Scenarios <span class="premium-badge">APP FEATURE</span></h3>
+            
+            <div class="input-group">
+                <label for="scenario-name">Scenario Name</label>
+                <input type="text" id="scenario-name" placeholder="e.g., Mortgage Penalty Analysis">
+            </div>
+            
+            <button onclick="saveCurrentScenario()" style="background: linear-gradient(135deg, #059669 0%, #047857 100%); margin-bottom: 10px;">
+                💾 Save Current Scenario
+            </button>
+            
+            <div id="saved-scenarios-list">
+                <h4 style="margin-bottom: 15px;">Saved Scenarios</h4>
+                <div id="scenarios-container">
+                    <!-- Saved scenarios will appear here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- APP LAUNCH TEASER SECTION -->
+        <div class="calculator-section" style="background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%); border: 2px solid #3b82f6; border-radius: 12px;">
+            <h3 style="color: #1e40af; margin-bottom: 15px; text-align: center;">📱 Debt Freedom Coach App - Coming Soon!</h3>
+            <p style="text-align: center; color: #1e40af; margin-bottom: 20px; font-size: 15px;">Turn calculations into daily coaching with our fruit-powered debt freedom community!</p>
+            
+            <div class="grid-container">
+                <div class="info-card" style="background: white; border-left: 4px solid #10b981; cursor: pointer;" onclick="showAppPreview()">
+                    <h4 style="color: #047857;">🎯 AI Debt Coach</h4>
+                    <p style="color: #666; font-size: 14px;">Personalized coaching that adapts to your debt personality and life changes</p>
+                    <div style="background: #ecfdf5; padding: 6px; border-radius: 4px; margin-top: 8px;">
+                        <span style="color: #065f46; font-size: 12px;">📱 APP EXCLUSIVE</span>
+                    </div>
+                </div>
+                
+                <div class="info-card" style="background: white; border-left: 4px solid #8b5cf6; cursor: pointer;" onclick="showAppPreview()">
+                    <h4 style="color: #7c3aed;">🍎 Fruit Warrior Community</h4>
+                    <p style="color: #666; font-size: 14px;">Join thousands eliminating "fruits" together with daily victory shouts!</p>
+                    <div style="background: #faf5ff; padding: 6px; border-radius: 4px; margin-top: 8px;">
+                        <span style="color: #6d28d9; font-size: 12px;">📱 APP EXCLUSIVE</span>
+                    </div>
+                </div>
+                
+                <div class="info-card" style="background: white; border-left: 4px solid #f59e0b; cursor: pointer;" onclick="showAppPreview()">
+                    <h4 style="color: #d97706;">📊 Progress Tracking</h4>
+                    <p style="color: #666; font-size: 14px;">Daily motivation, push notifications, and celebrate every fruit elimination</p>
+                    <div style="background: #fffbeb; padding: 6px; border-radius: 4px; margin-top: 8px;">
+                        <span style="color: #92400e; font-size: 12px;">📱 APP EXCLUSIVE</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 25px; padding: 20px; background: rgba(255,255,255,0.5); border-radius: 10px;">
+                <h4 style="color: #1e40af; margin-bottom: 10px;">💎 Be First in Line!</h4>
+                <p style="color: #1e40af; font-size: 14px; margin-bottom: 15px;">Get launch discount + early access to our fruit-powered debt freedom community</p>
+                
+                <div id="email-capture" style="max-width: 400px; margin: 0 auto;">
+                    <input type="email" id="app-waitlist-email" placeholder="Enter your email for early access" style="width: 100%; padding: 12px; border: 2px solid #3b82f6; border-radius: 8px; margin-bottom: 10px;">
+                    <button onclick="joinAppWaitlist()" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); padding: 12px 30px; border: none; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; font-size: 16px;">
+                        🔔 Notify Me at Launch
+                    </button>
+                </div>
+                <p style="color: #1e40af; font-size: 12px; margin-top: 8px;">+ Get free debt personality assessment!</p>
+            </div>
+        </div>
+
+        <!-- Resources & Next Steps Section -->
+        <div class="resources-section">
+            <h3 style="margin-bottom: 15px; text-align: center;">Master Your Financial Health</h3>
+            <p style="text-align: center; margin-bottom: 25px; opacity: 0.9; font-size: 16px;">Understanding penalties, interest rates, and debt management is key to financial success.</p>
+            
+            <div class="grid-container">
+                <div style="text-align: center;">
+                    <h4 style="margin-bottom: 10px;">📋 Financial Education</h4>
+                    <p style="font-size: 14px; opacity: 0.8;">Learn how different penalties and interest rates work</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4 style="margin-bottom: 10px;">💡 Rate Conversion</h4>
+                    <p style="font-size: 14px; opacity: 0.8;">Convert between monthly, annual, and daily interest rates</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4 style="margin-bottom: 10px;">🎯 Debt Management</h4>
+                    <p style="font-size: 14px; opacity: 0.8;">Tools and techniques to manage and reduce your debt effectively</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-top: 20px;">
+                <h4 style="text-align: center; margin-bottom: 10px;">💪 Take Control Today</h4>
+                <p style="text-align: center; font-size: 14px; opacity: 0.9;">Use our calculators to understand your financial obligations and make informed decisions about payments and debt management.</p>
+            </div>
+        </div>
+
+        <!-- Privacy Policy Footer -->
+        <div class="footer">
+            <a href="/privacy-policy.html">Privacy Policy</a>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification" class="notification"></div>
+
+            <script>
+        // ======== IMPROVED PREMIUM FEATURES IMPLEMENTATION ========
+        
+        // Fallback calculation if API is unavailable
+        function calculatePenaltyLocal(principal, penaltyType, penaltyValue, interestRate) {
+            const totalPenalty = penaltyType === 'flat' ? penaltyValue : (principal * penaltyValue) / 100;
+            const totalInterest = (principal * interestRate) / 100;
+            const totalAccrued = principal + totalPenalty + totalInterest;
+            
+            return {
+                success: true,
+                data: {
+                    totalAccrued: totalAccrued,
+                    breakdown: {
+                        principal: principal,
+                        totalPenalty: totalPenalty,
+                        totalInterest: totalInterest
+                    }
+                }
+            };
+        }
+
+        // Initialize JS PDF safely
+        let jsPDF;
+        try {
+            jsPDF = window.jspdf.jsPDF;
+        } catch (error) {
+            console.warn('jsPDF not available, PDF exports will be disabled');
+        }
+        
+        // Premium Features Configuration
+        const premiumFeatures = {
+            exports: true,
+            multiDebt: true,
+            saveScenarios: true,
+            advancedReports: true
+        };
+
+        // Notification System
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            if (!notification) {
+                console.log(`${type}: ${message}`);
+                return;
+            }
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // ======== BASIC CALCULATOR FUNCTIONS ========
+        
+        const API_URL = 'https://penalty-calculator-phi.vercel.app/api/calculate';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculate-btn');
+            const penaltyType = document.getElementById('penalty-type');
+            const penaltyLabel = document.getElementById('penalty-label');
+            const compareBtn = document.getElementById('compare-btn');
+            const convertRatesBtn = document.getElementById('convert-rates-btn');
+            const monthlyPaymentSlider = document.getElementById('monthly-payment');
+            const monthlyPaymentValue = document.getElementById('monthly-payment-value');
+            const calculatePayoffBtn = document.getElementById('calculate-payoff-btn');
+            
+            // Update penalty label based on type
+            if (penaltyType && penaltyLabel) {
+                penaltyType.addEventListener('change', updatePenaltyLabel);
+            }
+            
+            function updatePenaltyLabel() {
+                if (penaltyLabel && penaltyType) {
+                    penaltyLabel.textContent = penaltyType.value === 'flat' 
+                        ? 'Penalty Value ($)' 
+                        : 'Penalty Value (%)';
+                }
+            }
+            
+            if (calculateBtn) calculateBtn.addEventListener('click', calculatePenalty);
+            if (compareBtn) compareBtn.addEventListener('click', comparePenalties);
+            if (convertRatesBtn) convertRatesBtn.addEventListener('click', convertInterestRates);
+            
+            // Update slider value display
+            if (monthlyPaymentSlider && monthlyPaymentValue) {
+                monthlyPaymentSlider.addEventListener('input', function() {
+                    monthlyPaymentValue.textContent = '$' + this.value;
+                });
+            }
+            
+            // Calculate payoff plan
+            if (calculatePayoffBtn) calculatePayoffBtn.addEventListener('click', calculatePayoffPlan);
+
+            // Quick Scenario Buttons
+            document.querySelectorAll('.scenario-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const amount = this.getAttribute('data-amount');
+                    if (document.getElementById('monthly-payment')) {
+                        document.getElementById('monthly-payment').value = amount;
+                    }
+                    if (document.getElementById('monthly-payment-value')) {
+                        document.getElementById('monthly-payment-value').textContent = '$' + amount;
+                    }
+                });
+            });
+
+            // Initialize penalty label
+            updatePenaltyLabel();
+            
+            // Load saved scenarios
+            loadSavedScenarios();
+        });
+        
+        async function calculatePenalty() {
+            const principal = parseFloat(document.getElementById('principal')?.value || 0);
+            const penaltyType = document.getElementById('penalty-type')?.value || 'percentage';
+            const penaltyValue = parseFloat(document.getElementById('penalty-value')?.value || 0);
+            const interestRate = parseFloat(document.getElementById('interest-rate')?.value || 0);
+            
+            // Validation
+            if (!principal || principal < 0) {
+                showError('Please enter a valid principal amount');
+                return;
+            }
+            if (!penaltyValue || penaltyValue < 0) {
+                showError('Please enter a valid penalty value');
+                return;
+            }
+            if (!interestRate || interestRate < 0) {
+                showError('Please enter a valid interest rate');
+                return;
+            }
+            
+            // Show loading state
+            const btn = document.getElementById('calculate-btn');
+            if (btn) {
+                btn.textContent = 'Calculating...';
+                btn.disabled = true;
+            }
+            hideError();
+            
+            try {
+                let data;
+                // Try API first, then fallback to local calculation
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            principal,
+                            penaltyType,
+                            penaltyValue,
+                            interestRate
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        data = await response.json();
+                    } else {
+                        throw new Error('API not available');
+                    }
+                } catch (apiError) {
+                    console.log('API not available, using local calculation');
+                    data = calculatePenaltyLocal(principal, penaltyType, penaltyValue, interestRate);
+                }
+                
+                if (data.success) {
+                    // Display results
+                    const totalAccruedEl = document.getElementById('total-accrued');
+                    const totalPrincipalEl = document.getElementById('total-principal');
+                    const totalPenaltyEl = document.getElementById('total-penalty');
+                    const totalInterestEl = document.getElementById('total-interest');
+                    
+                    if (totalAccruedEl) totalAccruedEl.textContent = '$' + data.data.totalAccrued.toFixed(2);
+                    if (totalPrincipalEl) totalPrincipalEl.textContent = '$' + data.data.breakdown.principal.toFixed(2);
+                    if (totalPenaltyEl) totalPenaltyEl.textContent = '$' + data.data.breakdown.totalPenalty.toFixed(2);
+                    if (totalInterestEl) totalInterestEl.textContent = '$' + data.data.breakdown.totalInterest.toFixed(2);
+                    
+                    // Show results container
+                    const resultsContainer = document.getElementById('results-container');
+                    if (resultsContainer) resultsContainer.style.display = 'block';
+                } else {
+                    showError('Calculation error: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                showError('Calculation error: ' + error.message);
+            } finally {
+                // Reset button
+                const btn = document.getElementById('calculate-btn');
+                if (btn) {
+                    btn.textContent = 'Calculate';
+                    btn.disabled = false;
+                }
+            }
+        }
+
+        function convertInterestRates() {
+            const inputRate = parseFloat(document.getElementById('input-rate')?.value || 0);
+            const rateType = document.getElementById('rate-type')?.value || 'annual';
+            const compounding = document.getElementById('compounding-frequency')?.value || 'monthly';
+            
+            if (!inputRate || inputRate < 0) {
+                alert('Please enter a valid interest rate');
+                return;
+            }
+            
+            let annualRate, monthlyRate, dailyRate, weeklyRate, effectiveRate;
+            
+            // Convert input rate to annual rate first
+            switch (rateType) {
+                case 'annual':
+                    annualRate = inputRate;
+                    break;
+                case 'monthly':
+                    annualRate = inputRate * 12;
+                    break;
+                case 'daily':
+                    annualRate = inputRate * 365;
+                    break;
+                case 'weekly':
+                    annualRate = inputRate * 52;
+                    break;
+                default:
+                    annualRate = inputRate;
+            }
+            
+            // Calculate other rates from annual
+            monthlyRate = annualRate / 12;
+            dailyRate = annualRate / 365;
+            weeklyRate = annualRate / 52;
+            
+            // Calculate Effective Annual Rate based on compounding
+            const periodsPerYear = {
+                'daily': 365,
+                'monthly': 12,
+                'quarterly': 4,
+                'annually': 1,
+                'continuous': 'continuous'
+            };
+            
+            const periods = periodsPerYear[compounding];
+            if (periods === 'continuous') {
+                // Continuous compounding formula: EAR = e^(r) - 1
+                effectiveRate = (Math.exp(annualRate / 100) - 1) * 100;
+            } else {
+                // Standard compounding formula: EAR = (1 + r/n)^n - 1
+                effectiveRate = (Math.pow(1 + (annualRate / 100) / periods, periods) - 1) * 100;
+            }
+            
+            // Display results
+            const annualRateEl = document.getElementById('annual-rate');
+            const monthlyRateEl = document.getElementById('monthly-rate');
+            const dailyRateEl = document.getElementById('daily-rate');
+            const weeklyRateEl = document.getElementById('weekly-rate');
+            const effectiveRateEl = document.getElementById('effective-rate');
+            
+            if (annualRateEl) annualRateEl.textContent = annualRate.toFixed(4) + '%';
+            if (monthlyRateEl) monthlyRateEl.textContent = monthlyRate.toFixed(4) + '%';
+            if (dailyRateEl) dailyRateEl.textContent = dailyRate.toFixed(4) + '%';
+            if (weeklyRateEl) weeklyRateEl.textContent = weeklyRate.toFixed(4) + '%';
+            if (effectiveRateEl) effectiveRateEl.textContent = effectiveRate.toFixed(4) + '%';
+            
+            // Show results
+            const conversionResults = document.getElementById('conversion-results');
+            if (conversionResults) conversionResults.style.display = 'block';
+        }
+
+        function comparePenalties() {
+            const principal = parseFloat(document.getElementById('principal')?.value || 0);
+            const penaltyType = document.getElementById('penalty-type')?.value || 'percentage';
+            const currentPenaltyValue = parseFloat(document.getElementById('penalty-value')?.value || 0);
+            const interestRate = parseFloat(document.getElementById('interest-rate')?.value || 0);
+            const comparePenalty = parseFloat(document.getElementById('compare-penalty')?.value || 0);
+            
+            if (!principal || !currentPenaltyValue || !comparePenalty) {
+                alert('Please fill in principal amount and both penalty values');
+                return;
+            }
+            
+            // Calculate current scenario
+            const currentTotalPenalty = penaltyType === 'flat' ? currentPenaltyValue : (principal * currentPenaltyValue) / 100;
+            const currentTotal = principal + currentTotalPenalty + (principal * interestRate / 100);
+            
+            // Calculate comparison scenario (always percentage for comparison)
+            const comparePenaltyAmount = (principal * comparePenalty) / 100;
+            const compareTotal = principal + comparePenaltyAmount + (principal * interestRate / 100);
+            
+            const difference = compareTotal - currentTotal;
+            
+            // Display results
+            const currentPenaltyEl = document.getElementById('current-penalty');
+            const currentTotalEl = document.getElementById('current-total');
+            const comparePenaltyAmountEl = document.getElementById('compare-penalty-amount');
+            const compareTotalEl = document.getElementById('compare-total');
+            const comparisonDifferenceEl = document.getElementById('comparison-difference');
+            
+            if (currentPenaltyEl) currentPenaltyEl.textContent = '$' + currentTotalPenalty.toFixed(2);
+            if (currentTotalEl) currentTotalEl.textContent = '$' + currentTotal.toFixed(2);
+            if (comparePenaltyAmountEl) comparePenaltyAmountEl.textContent = '$' + comparePenaltyAmount.toFixed(2);
+            if (compareTotalEl) compareTotalEl.textContent = '$' + compareTotal.toFixed(2);
+            if (comparisonDifferenceEl) {
+                comparisonDifferenceEl.textContent = '$' + Math.abs(difference).toFixed(2);
+                comparisonDifferenceEl.style.color = difference < 0 ? '#38a169' : '#e53e3e';
+            }
+            
+            const comparisonResults = document.getElementById('comparison-results');
+            if (comparisonResults) comparisonResults.style.display = 'block';
+        }
+        
+        function calculatePayoffPlan() {
+            const principal = parseFloat(document.getElementById('principal')?.value || 0);
+            const penaltyType = document.getElementById('penalty-type')?.value || 'percentage';
+            const penaltyValue = parseFloat(document.getElementById('penalty-value')?.value || 0);
+            const interestRate = parseFloat(document.getElementById('interest-rate')?.value || 0);
+            const monthlyPayment = parseFloat(document.getElementById('monthly-payment')?.value || 0);
+            const extraPayment = parseFloat(document.getElementById('extra-payment')?.value || 0);
+            const earlyPayoffMonths = parseInt(document.getElementById('early-payoff-months')?.value || 0);
+            
+            if (!principal || !monthlyPayment) {
+                alert('Please fill in principal amount and monthly payment');
+                return;
+            }
+            
+            // Calculate initial balance with penalty
+            const totalPenalty = penaltyType === 'flat' ? penaltyValue : (principal * penaltyValue) / 100;
+            let balance = principal + totalPenalty;
+            const monthlyRate = (interestRate / 100) / 12;
+            
+            // Calculate minimum payment (2% estimate)
+            const minPayment = balance * 0.02;
+            let minBalance = balance;
+            let minMonths = 0;
+            let minInterest = 0;
+            
+            while (minBalance > 0 && minMonths < 600) {
+                const monthlyInterest = minBalance * monthlyRate;
+                minInterest += monthlyInterest;
+                minBalance += monthlyInterest;
+                minBalance -= minPayment;
+                minMonths++;
+                if (minBalance < 0) minBalance = 0;
+            }
+            
+            // Apply extra payment if any
+            let startingBalance = balance;
+            if (extraPayment > 0) {
+                balance -= extraPayment;
+                startingBalance = balance;
+            }
+            
+            // Calculate your payoff scenario
+            let months = 0;
+            let totalInterest = 0;
+            let currentBalance = balance;
+            
+            while (currentBalance > 0 && months < 600) {
+                const monthlyInterest = currentBalance * monthlyRate;
+                totalInterest += monthlyInterest;
+                currentBalance += monthlyInterest;
+                currentBalance -= monthlyPayment;
+                months++;
+                if (currentBalance < 0) currentBalance = 0;
+            }
+            
+            // Calculate payoff date
+            const today = new Date();
+            const payoffDate = new Date(today);
+            payoffDate.setMonth(payoffDate.getMonth() + months);
+            
+            // Calculate progress
+            const progress = Math.min(100, ((startingBalance - currentBalance) / startingBalance) * 100);
+            
+            // Calculate savings vs minimum payment
+            const interestSavings = minInterest - totalInterest;
+            
+            // Display results
+            const payoffMonthsEl = document.getElementById('payoff-months');
+            const totalInterestPaidEl = document.getElementById('total-interest-paid');
+            const payoffDateEl = document.getElementById('payoff-date');
+            const progressTextEl = document.getElementById('progress-text');
+            const progressFillEl = document.getElementById('progress-fill');
+            const vsMinimumEl = document.getElementById('vs-minimum');
+            const interestSavingsEl = document.getElementById('interest-savings');
+            
+            if (payoffMonthsEl) payoffMonthsEl.textContent = months;
+            if (totalInterestPaidEl) totalInterestPaidEl.textContent = '$' + totalInterest.toFixed(2);
+            if (payoffDateEl) payoffDateEl.textContent = payoffDate.toLocaleDateString();
+            if (progressTextEl) progressTextEl.textContent = Math.round(progress) + '%';
+            if (progressFillEl) progressFillEl.style.width = progress + '%';
+            if (vsMinimumEl) vsMinimumEl.textContent = months < minMonths ? `${months} months vs ${minMonths} months with minimum` : 'Same timeline';
+            if (interestSavingsEl) interestSavingsEl.textContent = '$' + interestSavings.toFixed(2);
+            
+            // Show results
+            const payoffResults = document.getElementById('payoff-results');
+            if (payoffResults) payoffResults.style.display = 'block';
+        }
+        
+        function showError(message) {
+            const errorEl = document.getElementById('error-message');
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.style.display = 'block';
+            }
+        }
+        
+        function hideError() {
+            const errorEl = document.getElementById('error-message');
+            if (errorEl) errorEl.style.display = 'none';
+        }
+
+        // ======== APP MARKETING FEATURES ========
+
+        function joinAppWaitlist() {
+            const emailInput = document.getElementById('app-waitlist-email');
+            const email = emailInput ? emailInput.value : '';
+            
+            if (email && validateEmail(email)) {
+                // Save to localStorage
+                const waitlist = JSON.parse(localStorage.getItem('app_waitlist') || '[]');
+                waitlist.push({
+                    email: email,
+                    timestamp: new Date().toISOString(),
+                    source: 'web_calculator'
+                });
+                localStorage.setItem('app_waitlist', JSON.stringify(waitlist));
+                
+                // Show confirmation
+                showNotification('🎉 You\'re on the list! We\'ll email you app launch details + free personality assessment!', 'success');
+                if (emailInput) emailInput.value = '';
+                
+                // Track conversion
+                trackAppInterest('waitlist_signup', email);
+            } else {
+                showNotification('Please enter a valid email address', 'error');
+            }
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function trackAppInterest(action, data) {
+            console.log('App Interest:', { action, data, timestamp: new Date() });
+        }
+
+        function showAppPreview() {
+            const previewHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; justify-content: center; align-items: center;">
+                    <div style="background: white; padding: 30px; border-radius: 15px; max-width: 500px; text-align: center;">
+                        <h3 style="color: #1e40af; margin-bottom: 20px;">📱 Debt Freedom Coach App</h3>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
+                            <div style="text-align: center;">
+                                <div style="background: #dbeafe; padding: 20px; border-radius: 10px; margin-bottom: 10px;">
+                                    <span style="font-size: 24px;">🍎</span>
+                                </div>
+                                <p style="font-size: 12px; color: #666;">Fruit Debt System</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: #dcfce7; padding: 20px; border-radius: 10px; margin-bottom: 10px;">
+                                    <span style="font-size: 24px;">🎯</span>
+                                </div>
+                                <p style="font-size: 12px; color: #666;">AI Coach</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: #fef3c7; padding: 20px; border-radius: 10px; margin-bottom: 10px;">
+                                    <span style="font-size: 24px;">🎉</span>
+                                </div>
+                                <p style="font-size: 12px; color: #666;">Victory Shouts</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: #fce7f3; padding: 20px; border-radius: 10px; margin-bottom: 10px;">
+                                    <span style="font-size: 24px;">👥</span>
+                                </div>
+                                <p style="font-size: 12px; color: #666;">Community</p>
+                            </div>
+                        </div>
+                        
+                        <p style="color: #666; margin-bottom: 20px;">Turn stressful debt into a fun, community-powered journey with daily coaching and celebration!</p>
+                        
+                        <div style="display: flex; gap: 10px; justify-content: center;">
+                            <button onclick="joinAppWaitlistFromPreview()" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
+                                Join Waitlist
+                            </button>
+                            <button onclick="closeAppPreview()" style="background: #6b7280; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
+                                Maybe Later
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', previewHTML);
+        }
+
+        function closeAppPreview() {
+            const modal = document.querySelector('div[style*="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8)"]');
+            if (modal) modal.remove();
+        }
+
+        function joinAppWaitlistFromPreview() {
+            closeAppPreview();
+            const emailInput = document.getElementById('app-waitlist-email');
+            if (emailInput) emailInput.focus();
+        }
+
+        // ======== AI COACH INTEGRATION ========
+
+        class AICoach {
+            static async getStrategyMotivation(strategy, debts, personality) {
+                const prompt = `Give a short, encouraging explanation of the ${strategy} debt payoff method for someone with ${debts.length} debts. 
+                They're a ${personality} personality. Keep it under 100 words and focus on motivation.`;
+                
+                // For now, return static responses - integrate with OpenAI API later
+                const responses = {
+                    snowball: "The snowball method helps you build momentum by eliminating small debts first. Each victory gives you motivation to tackle the bigger ones! You've got this!",
+                    avalanche: "The avalanche method saves you the most money by targeting high-interest debts first. It's the mathematically smart approach that pays off in the long run!",
+                    hybrid: "A hybrid approach balances quick wins with long-term savings. You get the best of both worlds - motivation and maximum interest savings!"
+                };
+                
+                return responses[strategy] || "Every step you take toward debt freedom is a victory. Keep going - you're building a better financial future!";
+            }
+            
+            static getQuickTip() {
+                const tips = [
+                    "Every grape-sized debt you eliminate builds momentum for the watermelons!",
+                    "Celebrate every payment - you're buying back your freedom!",
+                    "The best time to plant a debt-free tree was 20 years ago. The second best time is today!",
+                    "Your future self is high-fiving you for every fruit you conquer! 🍎",
+                    "Small, consistent payments create massive change over time. You've got this!",
+                    "Debt freedom isn't a sprint - it's a marathon where every step counts!",
+                    "Remember why you started when the journey gets tough. Your future is worth it!"
+                ];
+                return tips[Math.floor(Math.random() * tips.length)];
+            }
+        }
+
+        // ======== SYNC CODE GENERATION ========
+
+        function generateSyncCode(calculationData) {
+            const code = Math.random().toString(36).substring(2, 8).toUpperCase();
+            localStorage.setItem(`sync_${code}`, JSON.stringify(calculationData));
+            return code;
+        }
+
+        function showSyncCode() {
+            const calculationData = getCurrentCalculationData();
+            const syncCode = generateSyncCode(calculationData);
+            
+            // Find or create sync code display
+            let syncDisplay = document.getElementById('sync-code-display');
+            if (!syncDisplay) {
+                syncDisplay = document.createElement('div');
+                syncDisplay.id = 'sync-code-display';
+                syncDisplay.style.cssText = 'text-align: center; margin: 15px 0; padding: 15px; background: #f0f9ff; border-radius: 10px; border: 2px dashed #3b82f6;';
+                document.getElementById('results-container').appendChild(syncDisplay);
+            }
+            
+            syncDisplay.innerHTML = `
+                <h4 style="color: #1e40af; margin-bottom: 10px;">📱 Continue in App</h4>
+                <p style="color: #666; margin-bottom: 10px;">Use this code to sync your calculation to the mobile app:</p>
+                <div style="font-size: 32px; font-weight: bold; letter-spacing: 4px; color: #3b82f6; margin: 15px 0;">${syncCode}</div>
+                <p style="font-size: 12px; color: #666;">Available soon in the Debt Freedom Coach app!</p>
+            `;
+        }
+
+        function getCurrentCalculationData() {
+            return {
+                principal: document.getElementById('principal')?.value,
+                penaltyType: document.getElementById('penalty-type')?.value,
+                penaltyValue: document.getElementById('penalty-value')?.value,
+                interestRate: document.getElementById('interest-rate')?.value,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        // ======== EXPORT FUNCTIONALITY ========
+        
+        function handleExport(type, calculatorType, data) {
+            if (!checkLibraries()) {
+                showNotification('❌ Export libraries not loaded. Please refresh the page.', 'error');
+                return;
+            }
+            
+            try {
+                if (type === 'pdf') {
+                    exportToPDF(calculatorType, data);
+                } else if (type === 'excel') {
+                    exportToExcel(calculatorType, data);
+                }
+                showNotification(`✅ ${calculatorType} results exported successfully!`, 'success');
+            } catch (error) {
+                console.error('Export error:', error);
+                showNotification('❌ Export failed. Please try again.', 'error');
+            }
+        }
+
+        function checkLibraries() {
+            return typeof jsPDF !== 'undefined' && typeof XLSX !== 'undefined';
+        }
+
+        function exportToPDF(calculatorType, data) {
+            if (!jsPDF) {
+                showNotification('❌ PDF export not available', 'error');
+                return;
+            }
+
+            const doc = new jsPDF();
+            let yPosition = 20;
+            
+            // Title
+            doc.setFontSize(16);
+            doc.setTextColor(40, 40, 40);
+            doc.text(`${calculatorType.toUpperCase()} CALCULATION RESULTS`, 20, yPosition);
+            yPosition += 15;
+            
+            // Date
+            doc.setFontSize(10);
+            doc.setTextColor(100, 100, 100);
+            doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 20, yPosition);
+            yPosition += 20;
+            
+            // Data
+            doc.setFontSize(12);
+            doc.setTextColor(60, 60, 60);
+            
+            if (calculatorType === 'penalty') {
+                doc.text(`Principal Amount: $${data.principal}`, 20, yPosition);
+                yPosition += 10;
+                doc.text(`Total Penalty: $${data.totalPenalty}`, 20, yPosition);
+                yPosition += 10;
+                doc.text(`Total Interest: $${data.totalInterest}`, 20, yPosition);
+                yPosition += 10;
+                doc.text(`Total Accrued: $${data.totalAccrued}`, 20, yPosition);
+            } else if (calculatorType === 'rate-conversion') {
+                doc.text(`Annual Rate (APR): ${data.annualRate}%`, 20, yPosition);
+                yPosition += 10;
+                doc.text(`Monthly Rate: ${data.monthlyRate}%`, 20, yPosition);
+                yPosition += 10;
+                doc.text(`Effective Annual Rate: ${data.effectiveRate}%`, 20, yPosition);
+            } else if (calculatorType === 'penalty-comparison') {
+                doc.text(`Current Penalty: $${data.currentPenalty}`, 20, yPosition);
+                yPosition += 10;
+                doc.text(`Alternative Penalty: $${data.comparePenalty}`, 20, yPosition);
+                yPosition += 10;
+                doc.text(`Difference: $${data.difference}`, 20, yPosition);
+            } else if (calculatorType === 'debt-payoff') {
+                doc.text(`Principal: $${data.principal}`, 20, yPosition);
+                yPosition += 8;
+                doc.text(`Monthly Payment: $${data.monthlyPayment}`, 20, yPosition);
+                yPosition += 8;
+                doc.text(`Interest Rate: ${data.interestRate}%`, 20, yPosition);
+                yPosition += 8;
+                doc.text(`Months to Payoff: ${data.payoffMonths}`, 20, yPosition);
+                yPosition += 8;
+                doc.text(`Payoff Date: ${data.payoffDate}`, 20, yPosition);
+                yPosition += 8;
+                doc.text(`Total Interest: $${data.totalInterest}`, 20, yPosition);
+                yPosition += 8;
+                doc.text(`Interest Savings: $${data.interestSavings}`, 20, yPosition);
+                yPosition += 8;
+                doc.text(`Total Amount Paid: $${data.totalPaid}`, 20, yPosition);
+            } else if (calculatorType === 'multi-debt') {
+                // Multi-debt header
+                doc.text(`Total Debt: $${data.summary?.totalDebt || data.totalBalance}`, 20, yPosition);
+                yPosition += 8;
+                doc.text(`Monthly Payments: $${data.summary?.monthlyPayments || data.totalMonthlyPayment}`, 20, yPosition);
+                yPosition += 8;
+                doc.text(`Strategy: ${data.strategy?.name || data.strategy}`, 20, yPosition);
+                yPosition += 8;
+                
+                // Handle long strategy description - split into multiple lines
+                if (data.strategy?.description) {
+                    const description = data.strategy.description;
+                    const maxWidth = 170;
+                    const splitDescription = doc.splitTextToSize(description, maxWidth);
+                    
+                    doc.text('Approach:', 20, yPosition);
+                    yPosition += 6;
+                    
+                    doc.setFontSize(9);
+                    doc.setTextColor(80, 80, 80);
+                    splitDescription.forEach(line => {
+                        if (yPosition > 250) {
+                            doc.addPage();
+                            yPosition = 20;
+                        }
+                        doc.text(line, 25, yPosition);
+                        yPosition += 5;
+                    });
+                    doc.setFontSize(12);
+                    doc.setTextColor(60, 60, 60);
+                }
+                yPosition += 10;
+                
+                // Individual debts
+                doc.setFontSize(11);
+                doc.setTextColor(80, 80, 80);
+                doc.text('Payoff Order:', 20, yPosition);
+                yPosition += 10;
+                
+                const debts = data.debts || [];
+                debts.forEach((debt, index) => {
+                    if (yPosition > 250) {
+                        doc.addPage();
+                        yPosition = 20;
+                    }
+                    
+                    doc.setFontSize(10);
+                    doc.setTextColor(40, 40, 40);
+                    doc.text(`${index + 1}. ${debt.description}`, 25, yPosition);
+                    yPosition += 6;
+                    
+                    doc.setFontSize(9);
+                    doc.setTextColor(80, 80, 80);
+                    doc.text(`   Balance: $${parseFloat(debt.balance).toFixed(2)}`, 30, yPosition);
+                    yPosition += 5;
+                    doc.text(`   Interest Rate: ${debt.interest}%`, 30, yPosition);
+                    yPosition += 5;
+                    doc.text(`   Minimum Payment: $${parseFloat(debt.minPayment).toFixed(2)}`, 30, yPosition);
+                    yPosition += 8;
+                });
+            }
+            
+            // Footer
+            yPosition += 20;
+            doc.setFontSize(8);
+            doc.setTextColor(150, 150, 150);
+            doc.text('Generated by Penalty Calculator - www.penalty-calculator.com', 20, yPosition);
+            
+            doc.save(`${calculatorType}-results-${Date.now()}.pdf`);
+        }
+
+        function exportToExcel(calculatorType, data) {
+            if (typeof XLSX === 'undefined') {
+                showNotification('❌ Excel export not available', 'error');
+                return;
+            }
+
+            let worksheetData = [];
+            
+            if (calculatorType === 'penalty') {
+                worksheetData = [
+                    ['Calculation Type', 'Amount'],
+                    ['Principal', `$${data.principal}`],
+                    ['Total Penalty', `$${data.totalPenalty}`],
+                    ['Total Interest', `$${data.totalInterest}`],
+                    ['Total Accrued', `$${data.totalAccrued}`],
+                    ['', ''],
+                    ['Generated on', new Date().toLocaleDateString()],
+                    ['Calculator', 'Penalty Calculator']
+                ];
+            } else if (calculatorType === 'rate-conversion') {
+                worksheetData = [
+                    ['Rate Type', 'Value'],
+                    ['Annual Rate (APR)', `${data.annualRate}%`],
+                    ['Monthly Rate', `${data.monthlyRate}%`],
+                    ['Daily Rate', `${data.dailyRate}%`],
+                    ['Effective Annual Rate', `${data.effectiveRate}%`],
+                    ['', ''],
+                    ['Generated on', new Date().toLocaleDateString()],
+                    ['Calculator', 'Rate Converter']
+                ];
+            } else if (calculatorType === 'penalty-comparison') {
+                worksheetData = [
+                    ['Scenario', 'Penalty', 'Total Cost'],
+                    ['Current', `$${data.currentPenalty}`, `$${data.currentTotal}`],
+                    ['Alternative', `$${data.comparePenalty}`, `$${data.compareTotal}`],
+                    ['Difference', `$${data.difference}`, ''],
+                    ['', ''],
+                    ['Generated on', new Date().toLocaleDateString()],
+                    ['Calculator', 'Penalty Comparison']
+                ];
+            } else if (calculatorType === 'debt-payoff') {
+                worksheetData = [
+                    ['Debt Payoff Analysis', ''],
+                    ['Principal', `$${data.principal}`],
+                    ['Monthly Payment', `$${data.monthlyPayment}`],
+                    ['Interest Rate', `${data.interestRate}%`],
+                    ['Months to Payoff', data.payoffMonths],
+                    ['Payoff Date', data.payoffDate],
+                    ['Total Interest Paid', `$${data.totalInterest}`],
+                    ['Interest Savings', `$${data.interestSavings}`],
+                    ['Total Amount Paid', `$${data.totalPaid}`],
+                    ['Average Monthly Savings', `$${data.monthlySavings}`],
+                    ['', ''],
+                    ['Generated on', new Date().toLocaleDateString()],
+                    ['Calculator', 'Debt Payoff Calculator']
+                ];
+            } else if (calculatorType === 'multi-debt') {
+                worksheetData = [
+                    ['Multi-Debt Strategy Analysis', ''],
+                    ['Total Debt Balance', `$${data.summary?.totalDebt || data.totalBalance}`],
+                    ['Total Monthly Payments', `$${data.summary?.monthlyPayments || data.totalMonthlyPayment}`],
+                    ['Recommended Strategy', data.strategy?.name || data.strategy],
+                    ['Strategy Description', data.strategy?.description || 'Pay off debts efficiently'],
+                    ['', ''],
+                    ['Payoff Order', '', '', ''],
+                    ['Description', 'Balance', 'Interest Rate', 'Min Payment']
+                ];
+                
+                // Add each debt as a row
+                const debts = data.debts || [];
+                debts.forEach(debt => {
+                    worksheetData.push([
+                        debt.description,
+                        `$${parseFloat(debt.balance).toFixed(2)}`,
+                        `${debt.interest}%`,
+                        `$${parseFloat(debt.minPayment).toFixed(2)}`
+                    ]);
+                });
+                
+                worksheetData.push(['', '', '', '']);
+                worksheetData.push(['Generated on', new Date().toLocaleDateString()]);
+                worksheetData.push(['Calculator', 'Multi-Debt Manager']);
+            }
+            
+            const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Results');
+            
+            XLSX.writeFile(workbook, `${calculatorType}-results-${Date.now()}.xlsx`);
+        }
+
+        // Data collection functions for exports
+        function getCalculationData() {
+            return {
+                principal: document.getElementById('total-principal')?.textContent.replace('$', '') || '0',
+                totalPenalty: document.getElementById('total-penalty')?.textContent.replace('$', '') || '0',
+                totalInterest: document.getElementById('total-interest')?.textContent.replace('$', '') || '0',
+                totalAccrued: document.getElementById('total-accrued')?.textContent.replace('$', '') || '0'
+            };
+        }
+
+        function getRateConversionData() {
+            return {
+                annualRate: document.getElementById('annual-rate')?.textContent.replace('%', '') || '0',
+                monthlyRate: document.getElementById('monthly-rate')?.textContent.replace('%', '') || '0',
+                dailyRate: document.getElementById('daily-rate')?.textContent.replace('%', '') || '0',
+                effectiveRate: document.getElementById('effective-rate')?.textContent.replace('%', '') || '0'
+            };
+        }
+
+        function getComparisonData() {
+            return {
+                currentPenalty: document.getElementById('current-penalty')?.textContent.replace('$', '') || '0',
+                currentTotal: document.getElementById('current-total')?.textContent.replace('$', '') || '0',
+                comparePenalty: document.getElementById('compare-penalty-amount')?.textContent.replace('$', '') || '0',
+                compareTotal: document.getElementById('compare-total')?.textContent.replace('$', '') || '0',
+                difference: document.getElementById('comparison-difference')?.textContent.replace('$', '') || '0'
+            };
+        }
+
+        function getPayoffData() {
+            // Get all the payoff data elements safely
+            const payoffMonths = document.getElementById('payoff-months')?.textContent || '0';
+            const totalInterest = document.getElementById('total-interest-paid')?.textContent.replace('$', '') || '0';
+            const interestSavings = document.getElementById('interest-savings')?.textContent.replace('$', '') || '0';
+            const payoffDate = document.getElementById('payoff-date')?.textContent || 'Unknown';
+            
+            // Get the input values for context
+            const principal = document.getElementById('principal')?.value || '0';
+            const monthlyPayment = document.getElementById('monthly-payment')?.value || '0';
+            const interestRate = document.getElementById('interest-rate')?.value || '0';
+            
+            return {
+                payoffMonths: payoffMonths,
+                totalInterest: totalInterest,
+                interestSavings: interestSavings,
+                payoffDate: payoffDate,
+                principal: principal,
+                monthlyPayment: monthlyPayment,
+                interestRate: interestRate,
+                // Add calculated fields for better reports
+                totalPaid: (parseFloat(principal) + parseFloat(totalInterest)).toFixed(2),
+                monthlySavings: (parseFloat(interestSavings) / Math.max(parseInt(payoffMonths), 1)).toFixed(2)
+            };
+        }
+
+        function getMultiDebtData() {
+            const debts = [];
+            let totalBalance = 0;
+            let totalMonthlyPayment = 0;
+            
+            document.querySelectorAll('.multi-debt-entry').forEach(entry => {
+                const debt = {
+                    description: entry.querySelector('.debt-description')?.value || 'Unknown',
+                    balance: entry.querySelector('.debt-balance')?.value || '0',
+                    interest: entry.querySelector('.debt-interest')?.value || '0',
+                    minPayment: entry.querySelector('.debt-min-payment')?.value || '0'
+                };
+                debts.push(debt);
+                totalBalance += parseFloat(debt.balance);
+                totalMonthlyPayment += parseFloat(debt.minPayment);
+            });
+            
+            // Get strategy results
+            const totalBalanceEl = document.querySelector('#debt-strategy-results .result-item:nth-child(1) .result-value');
+            const totalMonthlyEl = document.querySelector('#debt-strategy-results .result-item:nth-child(2) .result-value');
+            
+            return { 
+                debts: debts,
+                totalBalance: totalBalance.toFixed(2),
+                totalMonthlyPayment: totalMonthlyPayment.toFixed(2),
+                strategy: 'Debt Snowball Method',
+                summary: {
+                    totalDebt: totalBalanceEl?.textContent.replace('$', '') || totalBalance.toFixed(2),
+                    monthlyPayments: totalMonthlyEl?.textContent.replace('$', '') || totalMonthlyPayment.toFixed(2)
+                }
+            };
+        }
+
+        // ======== MULTI-DEBT MANAGER ========
+        
+        let debtCounter = 1;
+        
+        function addDebtEntry() {
+            if (!premiumFeatures.multiDebt) {
+                showUpgradePrompt('Multi-Debt Manager');
+                return;
+            }
+            
+            debtCounter++;
+            const debtList = document.getElementById('debt-list');
+            const newEntry = document.createElement('div');
+            newEntry.className = 'multi-debt-entry';
+            newEntry.innerHTML = `
+                <div class="input-group">
+                    <label>Debt ${debtCounter} Description</label>
+                    <input type="text" class="debt-description" placeholder="e.g., Credit Card, Personal Loan" value="Debt ${debtCounter}">
+                </div>
+                <div class="input-group">
+                    <label>Balance ($)</label>
+                    <input type="number" class="debt-balance" placeholder="Current balance" value="${1000 * debtCounter}" min="0" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label>Interest Rate (%)</label>
+                    <input type="number" class="debt-interest" placeholder="Annual interest rate" value="${10 + debtCounter}" min="0" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label>Minimum Payment ($)</label>
+                    <input type="number" class="debt-min-payment" placeholder="Minimum monthly payment" value="${50 * debtCounter}" min="0" step="0.01">
+                </div>
+                <button onclick="removeDebtEntry(this)" style="background: #ef4444; color: white; border: none; padding: 5px 10px; border-radius: 4px; font-size: 12px; cursor: pointer;">Remove</button>
+            `;
+            debtList.appendChild(newEntry);
+        }
+
+        function removeDebtEntry(button) {
+            const entry = button.closest('.multi-debt-entry');
+            entry.remove();
+            debtCounter--;
+            // Renumber remaining debts
+            document.querySelectorAll('.multi-debt-entry').forEach((entry, index) => {
+                const label = entry.querySelector('label');
+                if (label) label.textContent = `Debt ${index + 1} Description`;
+            });
+        }
+
+        function calculateMultiDebt() {
+            if (!premiumFeatures.multiDebt) {
+                showUpgradePrompt('Multi-Debt Manager');
+                return;
+            }
+            
+            const debts = [];
+            let totalBalance = 0;
+            let totalMonthlyPayment = 0;
+            
+            document.querySelectorAll('.multi-debt-entry').forEach(entry => {
+                const debt = {
+                    description: entry.querySelector('.debt-description')?.value || 'Unknown Debt',
+                    balance: parseFloat(entry.querySelector('.debt-balance')?.value || 0),
+                    interest: parseFloat(entry.querySelector('.debt-interest')?.value || 0),
+                    minPayment: parseFloat(entry.querySelector('.debt-min-payment')?.value || 0)
+                };
+                debts.push(debt);
+                totalBalance += debt.balance;
+                totalMonthlyPayment += debt.minPayment;
+            });
+            
+            if (debts.length === 0) {
+                showNotification('❌ Please add at least one debt', 'error');
+                return;
+            }
+            
+            // Simple debt snowball calculation
+            const resultsDiv = document.getElementById('debt-strategy-results');
+            resultsDiv.innerHTML = `
+                <div class="result-item">
+                    <span>Total Debt Balance:</span>
+                    <span class="result-value">$${totalBalance.toFixed(2)}</span>
+                </div>
+                <div class="result-item">
+                    <span>Total Monthly Payments:</span>
+                    <span class="result-value">$${totalMonthlyPayment.toFixed(2)}</span>
+                </div>
+                <div class="result-item">
+                    <span>Recommended Strategy:</span>
+                    <span class="result-value">Debt Snowball Method</span>
+                </div>
+                <div style="margin-top: 15px;">
+                    <h5>Payoff Order:</h5>
+                    ${debts.map(debt => `
+                        <p style="margin: 5px 0;">• ${debt.description}: $${debt.balance.toFixed(2)} at ${debt.interest}%</p>
+                    `).join('')}
+                </div>
+            `;
+            
+            document.getElementById('multi-debt-results').style.display = 'block';
+            showNotification('Multi-debt strategy calculated successfully!', 'success');
+        }
+
+        // ======== SAVE & LOAD SCENARIOS ========
+        
+        function saveCurrentScenario() {
+            if (!premiumFeatures.saveScenarios) {
+                showUpgradePrompt('Save Scenarios');
+                return;
+            }
+            
+            const scenarioName = document.getElementById('scenario-name')?.value || `Scenario ${new Date().toLocaleString()}`;
+            
+            // Capture data from ALL calculators
+            const scenarioData = {
+                name: scenarioName,
+                timestamp: new Date().toISOString(),
+                type: determineCurrentCalculator(),
+                data: {
+                    // Basic penalty calculator
+                    principal: document.getElementById('principal')?.value || '0',
+                    penaltyType: document.getElementById('penalty-type')?.value || 'percentage',
+                    penaltyValue: document.getElementById('penalty-value')?.value || '0',
+                    interestRate: document.getElementById('interest-rate')?.value || '0',
+                    
+                    // Rate converter
+                    rateType: document.getElementById('rate-type')?.value || 'annual',
+                    inputRate: document.getElementById('input-rate')?.value || '12',
+                    compoundingFrequency: document.getElementById('compounding-frequency')?.value || 'monthly',
+                    
+                    // Penalty comparison
+                    comparePenalty: document.getElementById('compare-penalty')?.value || '10',
+                    
+                    // Debt payoff
+                    monthlyPayment: document.getElementById('monthly-payment')?.value || '300',
+                    extraPayment: document.getElementById('extra-payment')?.value || '0',
+                    earlyPayoffMonths: document.getElementById('early-payoff-months')?.value || '',
+                    
+                    // Multi-debt data
+                    multiDebts: getCurrentMultiDebts(),
+                    
+                    // Current results (if any calculations were done)
+                    results: {
+                        penalty: getCalculationData(),
+                        rateConversion: getRateConversionData(),
+                        comparison: getComparisonData(),
+                        payoff: getPayoffData()
+                    }
+                }
+            };
+            
+            // Save to localStorage
+            try {
+                const savedScenarios = JSON.parse(localStorage.getItem('penaltyScenarios') || '[]');
+                savedScenarios.push(scenarioData);
+                localStorage.setItem('penaltyScenarios', JSON.stringify(savedScenarios));
+                
+                // Refresh scenarios list
+                loadSavedScenarios();
+                if (document.getElementById('scenario-name')) {
+                    document.getElementById('scenario-name').value = '';
+                }
+                showNotification(`✅ Scenario "${scenarioName}" saved successfully!`, 'success');
+            } catch (error) {
+                showNotification('❌ Failed to save scenario', 'error');
+            }
+        }
+
+        // Helper function to determine which calculator is active
+        function determineCurrentCalculator() {
+            if (document.getElementById('multi-debt-results')?.style.display === 'block') {
+                return 'multi-debt';
+            } else if (document.getElementById('payoff-results')?.style.display === 'block') {
+                return 'debt-payoff';
+            } else if (document.getElementById('comparison-results')?.style.display === 'block') {
+                return 'penalty-comparison';
+            } else if (document.getElementById('conversion-results')?.style.display === 'block') {
+                return 'rate-conversion';
+            } else if (document.getElementById('results-container')?.style.display === 'block') {
+                return 'penalty';
+            }
+            return 'basic';
+        }
+
+        // Helper function to get current multi-debt data
+        function getCurrentMultiDebts() {
+            const debts = [];
+            document.querySelectorAll('.multi-debt-entry').forEach(entry => {
+                debts.push({
+                    description: entry.querySelector('.debt-description')?.value || 'Unknown',
+                    balance: entry.querySelector('.debt-balance')?.value || '0',
+                    interest: entry.querySelector('.debt-interest')?.value || '0',
+                    minPayment: entry.querySelector('.debt-min-payment')?.value || '0'
+                });
+            });
+            return debts;
+        }
+
+        function loadSavedScenarios() {
+            const container = document.getElementById('scenarios-container');
+            if (!container) return;
+            
+            try {
+                const savedScenarios = JSON.parse(localStorage.getItem('penaltyScenarios') || '[]');
+                
+                if (savedScenarios.length === 0) {
+                    container.innerHTML = '<p style="color: #666; text-align: center;">No saved scenarios yet.</p>';
+                    return;
+                }
+                
+                container.innerHTML = savedScenarios.map((scenario, index) => `
+                    <div class="saved-scenario" onclick="loadScenario(${index})">
+                        <strong>${scenario.name}</strong>
+                        <div style="font-size: 12px; color: #666;">
+                            ${new Date(scenario.timestamp).toLocaleDateString()} • 
+                            ${scenario.type} • Principal: $${scenario.data.principal}
+                        </div>
+                        <button onclick="deleteScenario(event, ${index})" style="background: #ef4444; color: white; border: none; padding: 2px 6px; border-radius: 3px; font-size: 10px; cursor: pointer; margin-top: 5px;">Delete</button>
+                    </div>
+                `).join('');
+            } catch (error) {
+                container.innerHTML = '<p style="color: #666; text-align: center;">Error loading scenarios.</p>';
+            }
+        }
+
+        function loadScenario(index) {
+            try {
+                const savedScenarios = JSON.parse(localStorage.getItem('penaltyScenarios') || '[]');
+                const scenario = savedScenarios[index];
+                
+                if (scenario) {
+                    // Restore basic penalty calculator
+                    if (document.getElementById('principal')) document.getElementById('principal').value = scenario.data.principal;
+                    if (document.getElementById('penalty-type')) document.getElementById('penalty-type').value = scenario.data.penaltyType;
+                    if (document.getElementById('penalty-value')) document.getElementById('penalty-value').value = scenario.data.penaltyValue;
+                    if (document.getElementById('interest-rate')) document.getElementById('interest-rate').value = scenario.data.interestRate;
+                    
+                    // Restore rate converter
+                    if (document.getElementById('rate-type')) document.getElementById('rate-type').value = scenario.data.rateType;
+                    if (document.getElementById('input-rate')) document.getElementById('input-rate').value = scenario.data.inputRate;
+                    if (document.getElementById('compounding-frequency')) document.getElementById('compounding-frequency').value = scenario.data.compoundingFrequency;
+                    
+                    // Restore penalty comparison
+                    if (document.getElementById('compare-penalty')) document.getElementById('compare-penalty').value = scenario.data.comparePenalty;
+                    
+                    // Restore debt payoff
+                    if (document.getElementById('monthly-payment')) {
+                        document.getElementById('monthly-payment').value = scenario.data.monthlyPayment;
+                        document.getElementById('monthly-payment-value').textContent = '$' + scenario.data.monthlyPayment;
+                    }
+                    if (document.getElementById('extra-payment')) document.getElementById('extra-payment').value = scenario.data.extraPayment;
+                    if (document.getElementById('early-payoff-months')) document.getElementById('early-payoff-months').value = scenario.data.earlyPayoffMonths;
+                    
+                    // Restore multi-debts
+                    if (scenario.data.multiDebts && scenario.data.multiDebts.length > 0) {
+                        // Clear existing debts
+                        const debtList = document.getElementById('debt-list');
+                        debtList.innerHTML = '';
+                        
+                        // Add saved debts
+                        scenario.data.multiDebts.forEach((debt, index) => {
+                            if (index === 0) {
+                                // Update first debt entry
+                                const firstEntry = debtList.querySelector('.multi-debt-entry');
+                                if (firstEntry) {
+                                    firstEntry.querySelector('.debt-description').value = debt.description;
+                                    firstEntry.querySelector('.debt-balance').value = debt.balance;
+                                    firstEntry.querySelector('.debt-interest').value = debt.interest;
+                                    firstEntry.querySelector('.debt-min-payment').value = debt.minPayment;
+                                }
+                            } else {
+                                // Add additional debts
+                                addDebtEntry();
+                                const newEntry = debtList.lastElementChild;
+                                newEntry.querySelector('.debt-description').value = debt.description;
+                                newEntry.querySelector('.debt-balance').value = debt.balance;
+                                newEntry.querySelector('.debt-interest').value = debt.interest;
+                                newEntry.querySelector('.debt-min-payment').value = debt.minPayment;
+                            }
+                        });
+                    }
+                    
+                    // Update penalty label
+                    updatePenaltyLabel();
+                    
+                    // Auto-calculate if there are results
+                    if (scenario.data.results && scenario.data.results.penalty && document.getElementById('calculate-btn')) {
+                        setTimeout(() => {
+                            document.getElementById('calculate-btn').click();
+                        }, 500);
+                    }
+                    
+                    showNotification(`✅ Scenario "${scenario.name}" loaded successfully!`, 'success');
+                }
+            } catch (error) {
+                showNotification('❌ Failed to load scenario', 'error');
+            }
+        }
+
+        function deleteScenario(event, index) {
+            event.stopPropagation();
+            
+            try {
+                const savedScenarios = JSON.parse(localStorage.getItem('penaltyScenarios') || '[]');
+                const scenarioName = savedScenarios[index].name;
+                
+                savedScenarios.splice(index, 1);
+                localStorage.setItem('penaltyScenarios', JSON.stringify(savedScenarios));
+                
+                loadSavedScenarios();
+                showNotification(`Scenario "${scenarioName}" deleted.`, 'info');
+            } catch (error) {
+                showNotification('❌ Failed to delete scenario', 'error');
+            }
+        }
+
+        function showUpgradePrompt(featureName) {
+            const message = `🚀 ${featureName}\n\nThis feature will be available in our upcoming Debt Freedom Coach app!\n\nGet daily AI coaching, progress tracking, and join our Fruit Warrior community.\n\nJoin the waitlist to be first in line when we launch!`;
+            
+            if (confirm(message)) {
+                showAppPreview();
+            }
+        }
+
+        // ======== ADMIN FUNCTIONS ========
+
+        function viewWaitlist() {
+            const waitlist = JSON.parse(localStorage.getItem('app_waitlist') || '[]');
+            if (waitlist.length === 0) {
+                alert('No waitlist signups yet');
+            } else {
+                let emailList = waitlist.map(user => `${user.email} (${new Date(user.timestamp).toLocaleDateString()})`).join('\n');
+                alert(`Waitlist (${waitlist.length} people):\n\n${emailList}`);
+            }
+        }
+
+        function exportWaitlist() {
+            const waitlist = JSON.parse(localStorage.getItem('app_waitlist') || '[]');
+            if (waitlist.length === 0) {
+                alert('No emails to export yet');
+                return;
+            }
+            
+            const emails = waitlist.map(user => user.email).join('\n');
+            const blob = new Blob([emails], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'app-waitlist-' + new Date().toISOString().split('T')[0] + '.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert(`Exported ${waitlist.length} emails!`);
+        }
+
+        function clearData() {
+            if (confirm('Clear all waitlist data?')) {
+                localStorage.removeItem('app_waitlist');
+                alert('Data cleared!');
+            }
+        }
+    </script>
+        
